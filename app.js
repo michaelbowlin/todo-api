@@ -1,9 +1,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const todoModel = require('./models/todo.model');
-
 const app = express();
-
 const port = 8080;
 
 app.use(express.json());
@@ -46,15 +44,15 @@ app.delete('/todos', (req, res) => {
  
 // FILTERING TODOS
 app.get('/todo', (req, res) => {
-    const _dietTypes = [];
+    const _tags = [];
     for (let i = 0; i < req.query.tags.length; i++) {
         (i + 1)
-        _dietTypes.push( { tags: req.query.tags[i] } );
+        _tags.push( { tags: req.query.tags[i] } );
     }
     todoModel
         .find(
             {
-                $or: _dietTypes
+                $or: _tags
             }
         )
         .exec() // returns a promise
@@ -62,33 +60,6 @@ app.get('/todo', (req, res) => {
             res.send(docs);
         })
 });
-
-
-// TODO TYPES :::::::::::::::::::::::
-// ::::::::::::::::::::::::::::::::::
-// app.post('/diettype', (req, res) => {
-//     const diettype = new diettypeModel(req.body);
-
-//     console.log("req.query....");
-//     console.log(req.query);
-
-//     diettype.save((err, diettype) => {
-//         if (err) {
-//             res.status(400).send('Unable to save');
-//         }
-//         res.send('dietType successfully created');
-//     });
-// });
-
-// // GET TODO TYPES
-// app.get('/diettype', (req, res) => {
-//     diettypeModel
-//         .find({ dietTypes: req.query.name })
-//         .exec()
-//         .then(docs => {
-//             res.send(docs);
-//         })
-// });
 
 mongoose.connect('mongodb://mongo:27017/auth', { useNewUrlParser: true });
 const db = mongoose.connection;
