@@ -1,0 +1,21 @@
+version: '3'
+services:
+  api:
+    container_name: todo-api
+    image: node
+    restart: always
+    ports:
+      - 8080:8080
+    links:
+      - mongo
+    stdin_open: true
+    volumes:
+      - ./:/api
+    working_dir: /api
+  mongo:
+    container_name: mongo-todo
+    image: mongo
+    ports:
+      - 27017:27017
+    volumes:
+      - ./data:/data/db
