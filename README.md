@@ -1,26 +1,9 @@
 # TODO API
-
-> Table of Contents:
->
-> 1. Patterns and Ionic CSS Variables
->    - [Pattern Library](src/app/lib/patterns)
-> 2. Branding
->    - [Logos](src/app/lib/patterns/atoms/logos)
->    - [Colors](src/app/lib/patterns/atoms/colors)
->    - [Typography](src/app/lib/patterns/atoms/typography)
->    - [Iconography](src/app/lib/patterns/atoms/iconography)
->    - [Ionic Grid Samples](src/app/lib/patterns/templates/grid)
-> 3. Components
->    - [Ionic Components](src/app/lib/patterns/ionic-components)
->    - [Custom Internal Components](src/app/lib/patterns/atoms/cu-loader)
->    - [Angular Web Components](src/app/lib/patterns)
-
 ___
 
 ## Getting Started
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
-
 
 ### Prerequisites
 

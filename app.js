@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const mongodb = require('mongodb');
 const todoModel = require('./models/todo.model');
 const app = express();
 const port = 8080;
@@ -33,7 +34,7 @@ app.post('/todo', (req, res) => {
 // DELETE TODOS
 app.delete('/todos', (req, res) => {
     todoModel
-        .deleteOne({ todos: req.query.id })
+        .deleteOne({ _id: new mongodb.ObjectID('' + req.query._id +  '') })
         .exec()
         .then(docs => {
             res.send(docs);
