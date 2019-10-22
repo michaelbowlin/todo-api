@@ -3,23 +3,9 @@ const mongoose = require('mongoose');
 const mongodb = require('mongodb');
 const todoModel = require('./models/todo.model');
 const app = express();
-//const port = 8080;
+const port = 8080;
 
 // Heroku Tut: https://www.freecodecamp.org/news/how-to-deploy-a-nodejs-app-to-heroku-from-github-without-installing-heroku-on-your-machine-433bec770efe/
-const http = require('http');
-const port = process.env.PORT || 3000
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/html');
-  res.end('<h1>Hello World</h1>');
-});
-// . end
-
-server.listen(port,() => {
-  console.log(`Server running at port `+port);
-});
-
 
 app.use(express.json());
 
