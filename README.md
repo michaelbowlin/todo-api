@@ -12,6 +12,10 @@ These instructions will get you a copy of the project up and running on your loc
 * Postman
 * Mongo Compass
 
+### IMPORTANT NOTE
+
+* To run locally you will need to: Enable Cross Origin Resource Sharing. [Chrome Extention]()
+
 ### Docker build
 
 1. Open a terminal 
