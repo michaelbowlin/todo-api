@@ -3,9 +3,7 @@ const mongoose = require('mongoose');
 const mongodb = require('mongodb');
 const todoModel = require('./models/todo.model');
 const app = express();
-const port = 3000;
-
-// Heroku Tut: https://www.freecodecamp.org/news/how-to-deploy-a-nodejs-app-to-heroku-from-github-without-installing-heroku-on-your-machine-433bec770efe/
+const port = 8080;
 
 app.use(express.json());
 
@@ -42,10 +40,9 @@ app.delete('/todos', (req, res) => {
             res.send(docs);
         })
 });
-
-// UPDATE TODOS
  
 // FILTERING TODOS
+// ::::: NOTE: Filtering endpoints working in Postman
 app.get('/todo', (req, res) => {
     const _tags = [];
     for (let i = 0; i < req.query.tags.length; i++) {
@@ -64,9 +61,14 @@ app.get('/todo', (req, res) => {
         })
 });
 
+mongoose.connect('mongodb://mongo:27017/auth', { useNewUrlParser: true });
 
-// mongoose.connect('mongodb://mongo:27017/auth', { useNewUrlParser: true });
-mongoose.connect('mongodb+srv://guest:abc123_xyz!@cluster0-ylm6l.mongodb.net/test?retryWrites=true&w=majority/auth', { useNewUrlParser: true });
+// ::::::::::::::::::::::::::::::;
+// ::::::::::::::::::::::::::::::;
+// ::::    NOTE: DB also resides on MongoDB cloud
+// ::::     ** Work in progress
+// mongoose.connect('mongodb+srv://guest:abc123_xyz!@cluster0-ylm6l.mongodb.net/test?retryWrites=true&w=majority/auth', { useNewUrlParser: true });
+
 const db = mongoose.connection;
 
 db.on('error', console.error.bind(console, "connection error"));
