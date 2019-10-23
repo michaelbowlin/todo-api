@@ -55,7 +55,6 @@ nodemon -L app.js
 ### Postman and Mongo DB compass
 
 8. Download Mongo DB Compass:
-
 [https://www.mongodb.com/products/compass](Mongo DB Compass)
 
 9. Download Postman:
